@@ -218,7 +218,7 @@ function TaggedContentParser(
     codePoint === LeftCurlyBracketCodePoint
       ? NonVerbatimContent(state)
       : VerbatimContent(state);
-  return { tag, content };
+  return { tag: tag.normalize("NFC"), content };
 }
 
 const Document = (state: State) => {
