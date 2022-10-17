@@ -1,0 +1,59 @@
+{
+  "root": true,
+  "extends": [
+    "ivory/eslint",
+    "ivory/eslint-comments",
+    "ivory/import",
+    "ivory/unicorn",
+    "ivory/promise"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "es2018": true,
+    "commonjs": true
+  },
+  "rules": {
+    "import/no-unused-modules": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": ["ivory/typescript"],
+      "parserOptions": {
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+      },
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "@typescript-eslint/prefer-readonly-parameter-types": "off",
+        "@typescript-eslint/sort-type-union-intersection-members": "off"
+      },
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".d.ts"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true
+          },
+          "node": {
+            "extensions": [".js", ".json", ".ts", ".d.ts"]
+          }
+        },
+        "import/extensions": [".js", ".ts", ".d.ts"],
+        "import/external-module-folders": [
+          "node_modules",
+          "node_modules/@types"
+        ]
+      }
+    },
+    {
+      "files": ["*.test.js", "*.test.ts"],
+      "extends": ["ivory/jest"]
+    }
+  ]
+}
