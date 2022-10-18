@@ -611,7 +611,19 @@ exports[`parse should correctly parse Demark documents with Unicode 1`] = `
   ",
       [
         {
-          "content": [],
+          "content": [
+            "",
+          ],
+          "tag": "marker",
+        },
+      ],
+      "
+  ",
+      [
+        {
+          "content": [
+            "",
+          ],
           "tag": "marker",
         },
       ],

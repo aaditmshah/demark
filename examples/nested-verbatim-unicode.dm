@@ -1,5 +1,6 @@
 
 \article{Test Document}~content {
+  \marker{}
   \marker#{#}
   \code{demark}~content ##{
     \article{Nested Document}~content #{

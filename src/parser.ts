@@ -89,7 +89,7 @@ type Stream<A> = [A, ...A[]];
 
 type Data = string | TaggedContentGroup;
 
-type Content = Data[];
+type Content = Stream<Data>;
 
 interface TaggedContent {
   tag: string;
@@ -97,6 +97,8 @@ interface TaggedContent {
 }
 
 type TaggedContentGroup = Stream<TaggedContent>;
+
+const isContent = (content: Data[]): content is Content => content.length > 0;
 
 const IdentifierCharacter = (codePoint: number) => {
   if (WhiteSpaceCharacterCodePoints.has(codePoint))
@@ -135,7 +137,7 @@ const VerbatimContent = (state: State): Content => {
     data += string;
     string = VerbatimContentString(state, level);
   }
-  return data === "" ? [] : [data];
+  return [data];
 };
 
 const NonVerbatimData = (state: State, initialCodePoint: number): Data => {
@@ -152,7 +154,7 @@ const NonVerbatimData = (state: State, initialCodePoint: number): Data => {
 };
 
 const NonVerbatimContent = (state: State): Content => {
-  const content: Content = [];
+  const content: Data[] = [];
   let string = "";
   let group: TaggedContentGroup | false = false;
   let codePoint = SourceCharacter(state);
@@ -180,7 +182,8 @@ const NonVerbatimContent = (state: State): Content => {
     }
     codePoint = SourceCharacter(state);
   }
-  return string === "" ? content : [...content, string];
+  if (string !== "") content.push(string);
+  return isContent(content) ? content : [""];
 };
 
 function TaggedContentParser(
@@ -241,4 +244,5 @@ const Document = (state: State) => {
 
 const parse = (bytes: Uint8Array) => Document({ bytes, index: 0 });
 
+export type { Stream, Data, Content, TaggedContent, TaggedContentGroup };
 export { parse };
