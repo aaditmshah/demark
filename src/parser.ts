@@ -98,7 +98,7 @@ interface TaggedContent {
 
 type TaggedContentGroup = Stream<TaggedContent>;
 
-const isContent = (content: Data[]): content is Content => content.length > 0;
+const isStream = <A>(array: A[]): array is Stream<A> => array.length > 0;
 
 const IdentifierCharacter = (codePoint: number) => {
   if (WhiteSpaceCharacterCodePoints.has(codePoint))
@@ -183,7 +183,7 @@ const NonVerbatimContent = (state: State): Content => {
     codePoint = SourceCharacter(state);
   }
   if (string !== "") content.push(string);
-  return isContent(content) ? content : [""];
+  return isStream(content) ? content : [""];
 };
 
 function TaggedContentParser(
