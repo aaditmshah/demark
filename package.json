@@ -1,6 +1,6 @@
 {
   "name": "@demark/parser",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "The official Demark language specification and parser.",
   "keywords": [
     "demark",

@@ -1,3 +1,9 @@
+# [v1.1.0](https://github.com/aaditmshah/demark/compare/v1.0.2...v1.1.0) (2022-10-18)
+
+## ✨ New Features
+
+- [`ec1e1bf`](https://github.com/aaditmshah/demark/commit/ec1e1bf) Export types and make content a stream of data.
+
 # [v1.0.2](https://github.com/aaditmshah/demark/compare/v1.0.1...v1.0.2) (2022-10-17)
 
 ## 🐛 Bug Fixes
