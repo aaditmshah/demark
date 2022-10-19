@@ -56,8 +56,8 @@ const SourceCharacter = (state: State) => {
   throw new Error("invalid byte");
 };
 
-const LeftToRightMarkCodePoint = "\u200E".codePointAt(0);
-const RightToLeftMarkCodePoint = "\u200F".codePointAt(0);
+const LeftToRightMarkCodePoint = 0x20_0e;
+const RightToLeftMarkCodePoint = 0x20_0f;
 
 const WhiteSpaceCharacterCodePoints = new Set([
   ...WhiteSpaceCodePoints,
@@ -65,11 +65,11 @@ const WhiteSpaceCharacterCodePoints = new Set([
   RightToLeftMarkCodePoint
 ]);
 
-const NumberSignCodePoint = "#".codePointAt(0);
-const ReverseSolidusCodePoint = "\\".codePointAt(0);
-const LeftCurlyBracketCodePoint = "{".codePointAt(0);
-const RightCurlyBracketCodePoint = "}".codePointAt(0);
-const TildeCodePoint = "~".codePointAt(0);
+const NumberSignCodePoint = 0x23;
+const ReverseSolidusCodePoint = 0x5c;
+const LeftCurlyBracketCodePoint = 0x7b;
+const RightCurlyBracketCodePoint = 0x7d;
+const TildeCodePoint = 0x7e;
 
 const SyntaxCharacterCodePoints = new Set([
   NumberSignCodePoint,
