@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { parse } from ".";
+import { parse } from "./parser";
 
 describe("parse", () => {
   it("should correctly parse Demark documents", async () => {
