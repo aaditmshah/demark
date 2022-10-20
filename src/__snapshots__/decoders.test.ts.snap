@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`decode should correctly decode parsed Demark documents 1`] = `
+{
+  "body": [
+    {
+      "paragraphs": [
+        {
+          "contents": [
+            "I'm a very opinionated software developer. For example, I prefer writing ",
+            {
+              "tag": "code",
+              "value": "for…of",
+            },
+            " loops over ",
+            {
+              "tag": "code",
+              "value": ".forEach",
+            },
+            ". However, the Airbnb eslint config disallows ",
+            {
+              "tag": "code",
+              "value": "for…of",
+            },
+            " loops. So, what's a developer supposed to do? Either you give in and use ",
+            {
+              "tag": "code",
+              "value": ".forEach",
+            },
+            ", or you explicitly override the rule.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "Unfortunately, overriding a rule is not always as simple as turning it ",
+            {
+              "tag": "code",
+              "value": ""off"",
+            },
+            ". For example, the Airbnb eslint config uses the ",
+            {
+              "href": "https://eslint.org/docs/latest/rules/no-restricted-syntax",
+              "tag": "link",
+              "value": {
+                "tag": "code",
+                "value": "no-restricted-syntax",
+              },
+            },
+            " rule to disallow ",
+            {
+              "tag": "code",
+              "value": "for…of",
+            },
+            " loops. If you turn it ",
+            {
+              "tag": "code",
+              "value": ""off"",
+            },
+            " then you will inadvertently allow ",
+            {
+              "tag": "code",
+              "value": "for…in",
+            },
+            " loops, labels, and the ",
+            {
+              "tag": "code",
+              "value": "with",
+            },
+            " statement. Those are all things I want to disallow. Tweaking the rule to only allow ",
+            {
+              "tag": "code",
+              "value": "for…of",
+            },
+            " loops is complicated.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "Now, though it might be complicated to tailor the Airbnb eslint config to suit your code style, it's nevertheless possible. But customized eslint configs suffer from another big problem — updates. Every time Airbnb updates its eslint config, there's a possibility that the updates might conflict with your code style. However, if you don't update then you skip out on configuring new rules.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "All these problems can be avoided if you create your own eslint config. Since you have full control of the eslint config, there's no possibility of subverting your code style. Furthermore, you can set up automated tests and workflows to ensure that your eslint config is always consistent and up to date. For example, the ",
+            {
+              "href": "https://github.com/AlloyTeam/eslint-config-alloy#philosophy",
+              "tag": "link",
+              "value": "Alloy",
+            },
+            " eslint config runs automated weekly checks for new rules added by eslint and its plugins. It also checks whether its rules conflict with ",
+            {
+              "href": "https://prettier.io/",
+              "tag": "link",
+              "value": "Prettier",
+            },
+            " or are deprecated.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "Sounds like a lot of work? It can indeed be daunting to create your own eslint config and manually configure all the rules to suit your code style. For example, I spent an entire 40-hour work week configuring all the rules in Ivory. But unlike me, you don't have to pay the cost upfront. You can create a fork of Ivory, start using it, and configure it over time to suit your code style.",
+          ],
+          "tag": "paragraph",
+        },
+      ],
+      "tag": "section",
+      "title": "1. You Will Have Full Control Over Your Code Style",
+    },
+    {
+      "paragraphs": [
+        {
+          "contents": [
+            "Creating your own eslint config does come at the significant cost of manually configuring all the rules. However, the benefit is that you only have to write the config once for all your repositories. For every new repository, you should only have to extend your eslint config. You should never have to override any rules, as that would make your code style inconsistent across repositories.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "I know from experience that it's very easy for developers to create multiple repositories with inconsistent code styles. It's effortless for developers to override rules on a per-repository basis. Especially when you're working in a large organization with multiple teams. Using an external eslint config like Airbnb just encourages developers to override rules on a per-repository basis.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "Now, inconsistent code styles would not be a major issue if eslint rules only enforced a stylistic preference, like ",
+            {
+              "tag": "code",
+              "value": "for…of",
+            },
+            " loops vs ",
+            {
+              "tag": "code",
+              "value": ".forEach",
+            },
+            ". However, a lot of eslint rules enforce a particular code style to prevent potential bugs. For example, I have a strong preference to ban type assertions in TypeScript by enabling the ",
+            {
+              "href": "https://typescript-eslint.io/rules/consistent-type-assertions",
+              "tag": "link",
+              "value": {
+                "tag": "code",
+                "value": "consistent-type-assertions",
+              },
+            },
+            " rule and setting the ",
+            {
+              "tag": "code",
+              "value": "assertionStyle",
+            },
+            " to ",
+            {
+              "tag": "code",
+              "value": ""never"",
+            },
+            ". This prevents a lot of bugs by forcing developers to fix errors reported by the type checker. If this code style was inconsistent across repositories then bugs may slip through.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "When you create your own eslint config, you should discourage developers from overriding rules on a per-repository basis. Instead, you should encourage developers to raise an issue in your eslint config repository. This allows you to debate the proposed code style, update the eslint config in a disciplined manner, and most importantly maintain consistency across repositories.",
+          ],
+          "tag": "paragraph",
+        },
+      ],
+      "tag": "section",
+      "title": "2. You Will Have Consistency Across All Repositories",
+    },
+    {
+      "paragraphs": [
+        {
+          "contents": [
+            "While maintaining consistency across repositories is important, not all repositories require the same configuration rules. For example, you may only want to activate React rules for front-end applications. Fortunately, creating your own eslint config doesn't mean that you have to give up customization across repositories. You can have granular configs and combine them as required.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "Breaking big things into smaller things and then recombining them to form the original thing is a common theme in computer science. Programmers know this concept by many names such as ",
+            {
+              "href": "https://en.wikipedia.org/wiki/Dynamic_programming",
+              "tag": "link",
+              "value": "dynamic programming",
+            },
+            ", the ",
+            {
+              "href": "https://wiki.haskell.org/Combinator_pattern",
+              "tag": "link",
+              "value": "combinator pattern",
+            },
+            ", and ",
+            {
+              "href": "http://worrydream.com/LearnableProgramming/",
+              "tag": "link",
+              "value": "decomposition",
+            },
+            " and ",
+            {
+              "href": "https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf",
+              "tag": "link",
+              "value": "recomposition",
+            },
+            ". This technique has become popular in modern times. For example, the core concept of ",
+            {
+              "href": "https://tailwindcss.com/",
+              "tag": "link",
+              "value": "Tailwind CSS",
+            },
+            ", the most popular CSS framework, is combining simple style classes to build more complex styles.",
+          ],
+          "tag": "paragraph",
+        },
+        {
+          "contents": [
+            "The same concept can be applied to eslint configs. We already have a way of combining multiple eslint configs using the ",
+            {
+              "tag": "code",
+              "value": "extends",
+            },
+            " property. So, instead of creating a single monolithic eslint config, we can create multiple eslint configs at the level of granularity we desire. We can then combine them using the ",
+            {
+              "tag": "code",
+              "value": "extends",
+            },
+            " property into several preset configs for different kinds of repositories. The ",
+            {
+              "href": "https://github.com/gajus/eslint-config-canonical#example-configuration",
+              "tag": "link",
+              "value": "Canonical",
+            },
+            " eslint config has some excellent examples on how to combine multiple configs.",
+          ],
+          "tag": "paragraph",
+        },
+      ],
+      "tag": "section",
+      "title": "3. You Can Have Customization With Preset Configs",
+    },
+    {
+      "paragraphs": [
+        {
+          "contents": [
+            "Using a popular eslint config like Airbnb is easy when you want to get started as soon as possible. However, the return on investment sharply declines when you start overriding rules, copying your eslintrc file, and trying to maintain consistency across repositories. Having your own eslint config solves all these problems. And you don't need to start from scratch. Just fork ",
+            {
+              "href": "https://www.npmjs.com/package/eslint-config-ivory",
+              "tag": "link",
+              "value": "Ivory",
+            },
+            " and get going.",
+          ],
+          "tag": "paragraph",
+        },
+      ],
+      "tag": "section",
+      "title": "So Go Ahead and Create Your Own ESLint Config",
+    },
+  ],
+  "introduction": [
+    {
+      "contents": [
+        "I recently created my own eslint config called ",
+        {
+          "href": "https://www.npmjs.com/package/eslint-config-ivory",
+          "tag": "link",
+          "value": "Ivory",
+        },
+        ". It's my first open-source project. I decided that since I'm going to be a full-time open-source developer, I need to adhere to a single code style for all my repositories. So, why didn't I go with a popular eslint config like ",
+        {
+          "href": "https://github.com/airbnb/javascript",
+          "tag": "link",
+          "value": "Airbnb",
+        },
+        "? Here are 3 reasons why I created my own eslint config, and why you should consider doing the same.",
+      ],
+      "tag": "paragraph",
+    },
+  ],
+  "tag": "article",
+  "tags": [
+    "eslint",
+    "eslint-config",
+    "ivory",
+  ],
+  "title": "3 Reasons Why You Should Create Your Own ESLint Config",
+}
+`;
+
+exports[`decode should correctly decode parsed Demark documents with Unicode 1`] = `
+{
+  "content": [
+    {
+      "tag": "marker",
+      "value": "",
+    },
+    {
+      "tag": "marker",
+      "value": "",
+    },
+    {
+      "language": "demark",
+      "tag": "code",
+      "value": "
+    \\article{Nested Document}~content #{
+      \\paragraph{Demark documents support Unicode. For example, the value of π is approximately 3.141592653589793.}
+      \\paragraph{You can also have emojis in your document. For example, here is a heart emoji ❤️.}
+      \\paragraph{Demark documents also support characters outside the Basic Multilingual Plane such as this fancy 𝕽.}
+    #}
+  ",
+    },
+  ],
+  "tag": "article",
+  "title": "Test Document",
+}
+`;

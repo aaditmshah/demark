@@ -149,6 +149,7 @@ const group =
       if (!WhiteSpaceRegExp.test(data))
         throw new Error("expected tagged content group");
       const nextData = at(array, index + 1);
+      // istanbul ignore if -- impossible to test because text never follows text
       if (typeof nextData === "string")
         throw new Error("expected tagged content group");
       return {
