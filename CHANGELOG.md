@@ -1,3 +1,9 @@
+# [v1.2.0](https://github.com/aaditmshah/demark/compare/v1.1.0...v1.2.0) (2022-10-25)
+
+## ✨ New Features
+
+- [`110054f`](https://github.com/aaditmshah/demark/commit/110054f) Add decoders for parsed Demark documents.
+
 # [v1.1.0](https://github.com/aaditmshah/demark/compare/v1.0.2...v1.1.0) (2022-10-18)
 
 ## ✨ New Features
