@@ -31,3 +31,9 @@ You can also install `@demark/parser` using yarn.
 ```shell
 yarn add @demark/parser
 ```
+
+## Syntax Highlighting
+
+If you're using Visual Studio Code then you can install the [Demark Syntax Highlighting](https://marketplace.visualstudio.com/items?itemName=aaditmshah.demark-syntax-highlighting) extension for syntax highlighting.
+
+![Screenshot of Syntax Highlighting for Demark in Visual Studio Code.](https://github.com/aaditmshah/demark-syntax-highlighting/raw/main/media/screenshot.png)
