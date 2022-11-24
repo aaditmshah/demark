@@ -76,17 +76,25 @@ Identifiers are case sensitive. Identifiers must always be compared for canonica
   <dt><strong>TaggedContentGroup</strong>&ensp;=</dt>
   <dd><em>U+005C &lt;Reverse Solidus&gt;</em>&ensp;<strong>TaggedContent</strong>&ensp;(<strong>WhiteSpace</strong>&ensp;<em>U+007E &lt;Tilde&gt;</em>&ensp;<strong>TaggedContent</strong>)*</dd>
   <dt><strong>TaggedContent</strong>&ensp;=</dt>
-  <dd><strong>Identifier</strong>&ensp;<strong>WhiteSpace</strong>&ensp;<strong>DemarcatedContent</strong></dd>
-  <dt><strong>DemarcatedContent</strong>&ensp;=</dt>
-  <dd>|&ensp;<strong>DemarcatedVerbatimContentStart</strong>&ensp;<em>U+007D &lt;Right Curly Bracket&gt;</em></dd>
-  <dd>|&ensp;<em>U+007B &lt;Left Curly Bracket&gt;</em>&ensp;<strong>NonVerbatimContent</strong>&ensp;<em>U+007D &lt;Right Curly Bracket&gt;</em></dd>
-  <dt><strong>DemarcatedVerbatimContentStart</strong>&ensp;=</dt>
-  <dd><em>U+0023 &lt;Number Sign&gt;</em>&ensp;<strong>DemarcatedVerbatimContent</strong>&ensp;<em>U+0023 &lt;Number Sign&gt;</em></dd>
-  <dt><strong>DemarcatedVerbatimContent</strong>&ensp;=</dt>
-  <dd>|&ensp;<strong>DemarcatedVerbatimContentStart</strong></dd>
-  <dd>|&ensp;<em>U+007B &lt;Left Curly Bracket&gt;</em>&ensp;<strong>VerbatimContent</strong></dd>
-  <dt><strong>VerbatimContent</strong>&ensp;=</dt>
-  <dd><strong>SourceCharacter</strong>*?</dd>
+  <dd><strong>Identifier</strong>&ensp;<strong>WhiteSpace</strong>&ensp;<strong>DemarcatedContent</strong><sub>n</sub></dd>
+  <dt><strong>DemarcatedContent</strong><sub>0</sub>&ensp;=</dt>
+  <dd><em>U+007B &lt;Left Curly Bracket&gt;</em>&ensp;<strong>NonVerbatimContent</strong>&ensp;<em>U+007D &lt;Right Curly Bracket&gt;</em></dd>
+  <dt><strong>DemarcatedContent</strong><sub>n+1</sub>&ensp;=</dt>
+  <dd><strong>VerbatimStart</strong><sub>n+1</sub>&ensp;<strong>VerbatimContent</strong><sub>n+1</sub>*&ensp;<strong>VerbatimEnd</strong><sub>n+1</sub></dd>
+  <dt><strong>VerbatimStart</strong><sub>0</sub>&ensp;=</dt>
+  <dd><em>U+007B &lt;Left Curly Bracket&gt;</em></dd>
+  <dt><strong>VerbatimStart</strong><sub>n+1</sub>&ensp;=</dt>
+  <dd><em>U+0023 &lt;Number Sign&gt;</em>&ensp;<strong>VerbatimStart</strong><sub>n</sub></dd>
+  <dt><strong>VerbatimContent</strong><sub>0</sub>&ensp;=</dt>
+  <dd>|&ensp;<strong>SourceCharacter</strong>&ensp;-&ensp;<em>U+0023 &lt;Number Sign&gt;</em>&ensp;-&ensp;<em>U+007D &lt;Right Curly Bracket&gt;</em></dd>
+  <dd>|&ensp;<em>U+0023 &lt;Number Sign&gt;</em>&ensp;<strong>VerbatimContent</strong><sub>0</sub></dd>
+  <dt><strong>VerbatimContent</strong><sub>n+1</sub>&ensp;=</dt>
+  <dd>|&ensp;<strong>SourceCharacter</strong>&ensp;-&ensp;<em>U+0023 &lt;Number Sign&gt;</em></dd>
+  <dd>|&ensp;<em>U+0023 &lt;Number Sign&gt;</em>&ensp;<strong>VerbatimContent</strong><sub>n</sub></dd>
+  <dt><strong>VerbatimEnd</strong><sub>0</sub>&ensp;=</dt>
+  <dd><em>U+007D &lt;Right Curly Bracket&gt;</em></dd>
+  <dt><strong>VerbatimEnd</strong><sub>n+1</sub>&ensp;=</dt>
+  <dd><em>U+0023 &lt;Number Sign&gt;</em>&ensp;<strong>VerbatimEnd</strong><sub>n</sub></dd>
   <dt><strong>NonVerbatimContent</strong>&ensp;=</dt>
   <dd>|&ensp;<strong>ContentGroup</strong></dd>
   <dd>|&ensp;<strong>ContentString</strong>&ensp;<strong>ContentGroup</strong>?</dd>
