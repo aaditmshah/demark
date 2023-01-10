@@ -1,6 +1,6 @@
 # Demark
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/aaditmshah/demark/Continuous%20Deployment?logo=github)](https://github.com/aaditmshah/demark/actions/workflows/continuous-deployment.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/aaditmshah/demark/continuous-deployment.yml?branch=main&logo=github)](https://github.com/aaditmshah/demark/actions/workflows/continuous-deployment.yml)
 [![GitHub license](https://img.shields.io/github/license/aaditmshah/demark)](https://github.com/aaditmshah/demark/blob/main/LICENSE)
 [![npm](https://img.shields.io/npm/v/@demark/parser?logo=npm)](https://www.npmjs.com/package/@demark/parser)
 [![semantic-release: gitmoji](https://img.shields.io/badge/semantic--release-gitmoji-E10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
